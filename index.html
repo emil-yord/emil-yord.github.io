@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Emil Yordanov — Projects</title>
+<meta name="description" content="Software and data projects by Emil Yordanov: a real-time collaborative app, a RAG-based AI document assistant, and a statistical analysis dashboard." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper: #F7F6F2;
+    --ink: #1B1F23;
+    --muted: #6B7280;
+    --accent: #1D3461;
+    --signal: #D1A954;
+    --line: #D9D6CC;
+
+    --corkboard: #2F6F52;
+    --documind: #B8873A;
+    --marketpulse: #1D3461;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-font-smoothing: antialiased; }
+
+  body {
+    margin: 0;
+    background:
+      radial-gradient(circle at 1px 1px, rgba(27,31,35,0.05) 1px, transparent 0) 0 0 / 28px 28px,
+      var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 72px 24px 96px;
+  }
+
+  header {
+    margin-bottom: 64px;
+    opacity: 0;
+    animation: rise 0.6s ease-out 0.1s forwards;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    header { animation: none; opacity: 1; }
+  }
+
+  .mark {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--signal);
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(32px, 5vw, 42px);
+    line-height: 1.15;
+    margin: 0 0 14px;
+    letter-spacing: -0.01em;
+  }
+
+  .tagline {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 46ch;
+    margin: 0 0 24px;
+  }
+
+  .meta-links {
+    font-size: 14.5px;
+  }
+
+  .meta-links a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1px;
+  }
+
+  .meta-links a:hover {
+    border-color: var(--ink);
+  }
+
+  .meta-links span {
+    color: var(--line);
+    margin: 0 10px;
+  }
+
+  .projects {
+    border-top: 1px solid var(--line);
+  }
+
+  .project {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 20px;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .project .num {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 34px;
+    color: var(--project-color, var(--accent));
+    line-height: 1;
+    padding-top: 2px;
+  }
+
+  .project .bar {
+    display: inline-block;
+    width: 28px;
+    height: 3px;
+    background: var(--project-color, var(--accent));
+    margin-bottom: 14px;
+    border-radius: 2px;
+  }
+
+  .project h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 22px;
+    margin: 0 0 4px;
+  }
+
+  .project .role {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
+
+  .project p.desc {
+    margin: 0 0 16px;
+    max-width: 58ch;
+    color: #33383D;
+  }
+
+  .stack {
+    font-size: 13.5px;
+    color: var(--muted);
+    margin: 0 0 18px;
+  }
+
+  .links {
+    display: flex;
+    gap: 20px;
+    font-size: 14.5px;
+  }
+
+  .links a {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid var(--project-color, var(--accent));
+    padding-bottom: 1px;
+  }
+
+  .links a:hover {
+    opacity: 0.7;
+  }
+
+  .links a.secondary {
+    color: var(--muted);
+    border-bottom-color: var(--line);
+    font-weight: 400;
+  }
+
+  footer {
+    margin-top: 56px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  footer .cmd {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 13px;
+    background: #EFEDE6;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 10px 14px;
+    color: #44484D;
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 480px) {
+    .project { grid-template-columns: 1fr; }
+    .project .num { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <span class="mark" aria-hidden="true"></span>
+      <h1>Emil Yordanov</h1>
+      <p class="tagline">Software and data projects, built end to end — from the database schema to the deployed app.</p>
+      <p class="meta-links">
+        <a href="mailto:emil_yordanov@outlook.com">Email</a>
+        <span>·</span>
+        <a href="https://www.linkedin.com/in/emil-yordnov/" target="_blank" rel="noopener">LinkedIn</a>
+        <span>·</span>
+        <a href="https://github.com/emil-yord" target="_blank" rel="noopener">GitHub</a>
+      </p>
+    </header>
+
+    <main class="projects">
+
+      <article class="project" style="--project-color: var(--corkboard)">
+        <div class="num">01</div>
+        <div>
+          <span class="bar"></span>
+          <h2>Corkboard</h2>
+          <p class="role">Real-time collaborative task board</p>
+          <p class="desc">A Kanban-style board where every drag, edit, and invited teammate syncs live across every open tab — no refresh, no polling. Built to prove out authentication, relational data design, and WebSocket-driven state sync in one app.</p>
+          <p class="stack">React · Node.js · Express · Socket.io · SQLite</p>
+          <p class="links">
+            <a href="https://corkboard.onrender.com" target="_blank" rel="noopener">Live demo</a>
+            <a class="secondary" href="https://github.com/emil-yord/Taskboard" target="_blank" rel="noopener">Source code</a>
+          </p>
+        </div>
+      </article>
+
+      <article class="project" style="--project-color: var(--documind)">
+        <div class="num">02</div>
+        <div>
+          <span class="bar"></span>
+          <h2>DocuMind</h2>
+          <p class="role">AI document Q&amp;A with retrieval-augmented generation</p>
+          <p class="desc">Upload a document, then ask it questions and get answers grounded only in its actual content — every claim cites the exact passage it came from. A full RAG pipeline built from scratch: chunking, embedding, vector search, and streamed generation.</p>
+          <p class="stack">React · Node.js · Google Gemini · Voyage AI embeddings · SQLite</p>
+          <p class="links">
+            <a href="https://documind.onrender.com" target="_blank" rel="noopener">Live demo</a>
+            <a class="secondary" href="https://github.com/emil-yord/DocuMind" target="_blank" rel="noopener">Source code</a>
+          </p>
+        </div>
+      </article>
+
+      <article class="project" style="--project-color: var(--marketpulse)">
+        <div class="num">03</div>
+        <div>
+          <span class="bar"></span>
+          <h2>Market Pulse</h2>
+          <p class="role">Statistical analysis of EU economic indicators</p>
+          <p class="desc">Which economic indicators actually correlate with life expectancy across EU countries, and where does Bulgaria sit relative to the trend? Pulls real data from the World Bank API and answers the question with correlation testing and regression, not just a chart.</p>
+          <p class="stack">Python · pandas · statsmodels · Streamlit</p>
+          <p class="links">
+            <a href="https://market-pulse.streamlit.app" target="_blank" rel="noopener">Live demo</a>
+            <a class="secondary" href="https://github.com/emil-yord/MarketPulse" target="_blank" rel="noopener">Source code</a>
+          </p>
+        </div>
+      </article>
+
+    </main>
+
+    <footer>
+      <p>Free-tier hosting — a demo left idle for a while may take 20–30 seconds to wake back up on first load.</p>
+    </footer>
+  </div>
+</body>
+</html>
